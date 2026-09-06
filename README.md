@@ -31,6 +31,5 @@ With both configured, GitHub redirects `www.binked.org` → `binked.org`.
 
 ## Maintenance notes
 
-- **VAT ID (USt-IdNr.):** not yet issued. Once it arrives, uncomment the prepared block in `impressum.html` (search for `Umsatzsteuer-ID`) and fill in the number.
 - **Favicon:** `favicon.svg` (Chrome, Edge, Firefox) with `favicon.png` (32×32) as fallback for Safari and older browsers. Optional: render a 180×180 `apple-touch-icon.png` from the SVG for iOS home-screen bookmarks and add `<link rel="apple-touch-icon" href="apple-touch-icon.png">`.
 - **Footer year:** static (`© 2026`) — bump it in the four HTML files at year end, or leave the founding year.
