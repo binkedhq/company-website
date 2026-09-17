@@ -6,7 +6,9 @@ Static company website for binked UG (haftungsbeschränkt). Plain HTML/CSS, no b
 
 - `index.html` — landing page (English)
 - `impressum.html` — Impressum per § 5 DDG (German)
+- `legal-notice.html` — equivalent legal notice (English)
 - `datenschutz.html` — privacy policy incl. GitHub Pages hosting notice (German)
+- `privacy.html` — equivalent privacy policy (English)
 - `404.html` — served automatically by GitHub Pages for unknown URLs
 
 ## Deploying to GitHub Pages
@@ -32,4 +34,5 @@ With both configured, GitHub redirects `www.binked.org` → `binked.org`.
 ## Maintenance notes
 
 - **Favicon:** `favicon.svg` (Chrome, Edge, Firefox) with `favicon.png` (32×32) as fallback for Safari and older browsers. Optional: render a 180×180 `apple-touch-icon.png` from the SVG for iOS home-screen bookmarks and add `<link rel="apple-touch-icon" href="apple-touch-icon.png">`.
-- **Footer year:** static (`© 2026`) — bump it in the four HTML files at year end, or leave the founding year.
+- **Legal translations:** keep each German/English pair complete and equivalent when updating content. Legal pages link to their counterpart using an English / Deutsch switch; the English homepage and error page link to the English versions.
+- **Footer year:** static (`© 2026`) — bump it in all six HTML files at year end, or leave the founding year.
