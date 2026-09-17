@@ -1,0 +1,33 @@
+/* Only legal pages opt in; ordinary links still work without API support. */
+@media (prefers-reduced-motion: no-preference) {
+  @view-transition {
+    navigation: auto;
+  }
+
+  .language-switch-indicator {
+    view-transition-name: language-indicator;
+  }
+
+  .language-switch a[lang="en"] {
+    view-transition-name: language-english;
+  }
+
+  .language-switch a[lang="de"] {
+    view-transition-name: language-german;
+  }
+
+  ::view-transition-group(*) {
+    animation-duration: 240ms;
+    animation-timing-function: cubic-bezier(0.22, 1, 0.36, 1);
+  }
+
+  /* Keep the sliding pill underneath the separately captured labels. */
+  ::view-transition-group(language-indicator) {
+    z-index: 1;
+  }
+
+  ::view-transition-group(language-english),
+  ::view-transition-group(language-german) {
+    z-index: 2;
+  }
+}

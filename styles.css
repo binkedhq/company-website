@@ -16,6 +16,7 @@
 
 html {
   -webkit-text-size-adjust: 100%;
+  scrollbar-gutter: stable;
 }
 
 body {
@@ -235,8 +236,8 @@ a:hover {
 }
 
 .legal-toolbar {
-  display: flex;
-  flex-wrap: wrap;
+  display: grid;
+  grid-template-columns: 13rem 12rem;
   align-items: center;
   justify-content: space-between;
   gap: 1rem;
@@ -250,6 +251,8 @@ a:hover {
   justify-content: center;
   gap: 0.625rem;
   min-height: 44px;
+  width: 13rem;
+  max-width: 100%;
   padding: 0.625rem 1.125rem;
   border: 1px solid var(--rule);
   border-radius: 999px;
@@ -283,12 +286,30 @@ a:hover {
 }
 
 .language-switch {
-  display: flex;
-  gap: 0.125rem;
+  position: relative;
+  isolation: isolate;
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  width: 12rem;
   padding: 0.25rem;
   border: 1px solid var(--rule);
   border-radius: 999px;
   background: #f1f1ed;
+}
+
+.language-switch-indicator {
+  position: absolute;
+  z-index: -1;
+  inset: 0.25rem auto 0.25rem 0.25rem;
+  width: calc((100% - 0.5rem) / 2);
+  border: 1px solid var(--rule);
+  border-radius: 999px;
+  background: #fff;
+  box-shadow: 0 1px 3px rgb(17 24 39 / 0.06);
+}
+
+html[lang="de"] .language-switch-indicator {
+  transform: translateX(100%);
 }
 
 .language-switch a {
@@ -296,26 +317,22 @@ a:hover {
   align-items: center;
   justify-content: center;
   min-height: 44px;
-  padding: 0.5rem 1rem;
+  padding: 0.5rem 0.75rem;
   border: 1px solid transparent;
   border-radius: 999px;
   color: var(--body);
-  font-weight: 500;
+  font-weight: 600;
   text-decoration: none;
   transition: background-color 0.2s ease, color 0.2s ease;
 }
 
-.language-switch a:hover {
+.language-switch a:not([aria-current="page"]):hover {
   background: rgb(255 255 255 / 0.6);
   color: var(--ink);
 }
 
 .language-switch a[aria-current="page"] {
-  background: #fff;
-  border-color: var(--rule);
   color: var(--ink);
-  box-shadow: 0 1px 3px rgb(17 24 39 / 0.06);
-  font-weight: 600;
 }
 
 .back-link:focus-visible,
@@ -351,8 +368,8 @@ footer {
 }
 
 .footer-links {
-  display: flex;
-  flex-wrap: wrap;
+  display: grid;
+  grid-template-columns: 12rem 11rem;
   align-items: center;
   gap: 0.25rem;
 }
@@ -385,6 +402,19 @@ footer {
 
   .footer-links {
     justify-content: center;
+  }
+}
+
+/* Switch both languages to the same stacked layout at the same width. */
+@media (max-width: 32rem) {
+  .legal-toolbar {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 27rem) {
+  .footer-links {
+    grid-template-columns: 1fr;
   }
 }
 

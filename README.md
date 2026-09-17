@@ -36,3 +36,5 @@ With both configured, GitHub redirects `www.binked.org` → `binked.org`.
 - **Favicon:** `favicon.svg` (Chrome, Edge, Firefox) with `favicon.png` (32×32) as fallback for Safari and older browsers. Optional: render a 180×180 `apple-touch-icon.png` from the SVG for iOS home-screen bookmarks and add `<link rel="apple-touch-icon" href="apple-touch-icon.png">`.
 - **Legal translations:** keep each German/English pair complete and equivalent when updating content. Legal pages link to their counterpart using an English / Deutsch switch; the English homepage and error page link to the English versions.
 - **Footer year:** static (`© 2026`) — bump it in all six HTML files at year end, or leave the founding year.
+
+- **Language navigation:** toolbar controls and footer links use consistent widths across translations. `legal-transitions.css` enables a sliding selection pill and page crossfade through native cross-document view transitions, with normal navigation as the fallback. Reduced-motion preferences disable these animations.
